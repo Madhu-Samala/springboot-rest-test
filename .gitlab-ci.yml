@@ -1,0 +1,28 @@
+image: java:11-jdk
+
+stages:
+  - test
+  - build
+
+services:
+  - 'mysql:5.5'
+
+variables:
+  MYSQL_DATABASE:  testempdb
+  MYSQL_URL:  jdbc:mysql://mysql/testempdb
+  MYSQL_USER:  app_root
+  MYSQL_PASSWORD: root
+  MYSQL_ROOT_PASSWORD: root
+
+maven-test:
+  image:  maven:3.6.3-jdk-11-openj9
+  stage:  test
+  script: "mvn test"
+
+maven-build:
+  image:  maven:3.6.3-jdk-11-openj9
+  stage:  build
+  script: "mvn package"
+  artifacts:
+    paths:
+      - target/*.jar
