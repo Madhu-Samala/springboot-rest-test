@@ -26,11 +26,11 @@ import com.qa.springboot.entity.Employee;
 import com.qa.springboot.exception.EmployeeAlreadyExistsException;
 import com.qa.springboot.exception.EmployeeNotFoundException;
 import com.qa.springboot.repository.EmployeeRepository;
-
+//Extend the Mockito Support to JUnit
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
 	
-	@Mock
+	@Mock //creates the Mock Object
 	private EmployeeRepository empRepository;
 	
 	@Autowired
@@ -64,7 +64,7 @@ public class EmployeeServiceTest {
 	
 	@Test
 	@DisplayName("save-employee-test")
-	@Disabled
+	
 	public void given_Employee_To_Save_Should_Return_The_Saved_Employee() throws EmployeeAlreadyExistsException {
 		when(empRepository.findByName(any())).thenReturn(null);
 		when(empRepository.save(any())).thenReturn(emp1);

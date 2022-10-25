@@ -36,7 +36,7 @@ public class EmployeeController {
 	 * 
 	 */
 	
-	@PostMapping("employee")
+	@PostMapping("employees")
 	public ResponseEntity<?> saveEmployee(@RequestBody Employee employee) throws EmployeeAlreadyExistsException{
 		ResponseEntity<?> responseEntity = null;
 		
@@ -66,7 +66,7 @@ public class EmployeeController {
 	}
 	
 	
-	@GetMapping("employee/{id}")
+	@GetMapping("employees/{id}")
 	public ResponseEntity<?> getEmployeeById(@PathVariable("id") int id ) throws EmployeeNotFoundException{
 		ResponseEntity<?> responseEntity = null;
 		try {
@@ -80,7 +80,7 @@ public class EmployeeController {
 		return responseEntity;
 	}
 	
-	@PutMapping("employee")
+	@PutMapping("employees")
 	public ResponseEntity<?> updateEmployee(@RequestBody Employee employee) throws EmployeeNotFoundException{
 		ResponseEntity<?> responseEntity = null;
 		
@@ -96,7 +96,7 @@ public class EmployeeController {
 		return responseEntity;
 	}
 	
-	@DeleteMapping("employee/{id}")
+	@DeleteMapping("employees/{id}")
 	public ResponseEntity<?> deleteEmployee(@PathVariable("id") int id) throws EmployeeNotFoundException{
 		ResponseEntity<?> responseEntity = null;
 		try {

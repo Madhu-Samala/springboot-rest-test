@@ -20,7 +20,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.qa.springboot.entity.Employee;
-
+//This annotation extends Spring Functionality to JUnit
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace=Replace.NONE)
@@ -57,16 +57,16 @@ public class EmployeeRepositoryTest {
 	
 	@Test
 	@DisplayName("save-employee-test")
-	@Disabled
+	
 	public void given_Employee_To_Save_Should_Return_The_Saved_Employee() {
-		empRepository.save(emp1);
-		Employee savedEmployee = empRepository.findById(emp1.getId()).get();
+		
+		Employee savedEmployee = empRepository.save(emp1);
 		assertNotNull(savedEmployee);
 		assertEquals("emp1", savedEmployee.getName());
 	}
 	
 	@Test
-	@Disabled
+	
 	@DisplayName("get-employee-list-test")
 	public void given_GetAllEmployees_Should_Return_Employee_List() {
 		empRepository.save(emp1);
